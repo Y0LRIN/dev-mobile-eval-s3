@@ -76,6 +76,18 @@ class _TodoListScreenState extends State<TodoListScreen> {
       appBar: AppBar(
         title: const Text('Ma Todo List'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.bar_chart),
+            tooltip: 'Statistiques',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const StatsScreen()),
+              );
+            },
+          )
+        ],
         // F5 — Navigation vers l'écran Statistiques
       ),
       // Tout le body est à construire : zone de saisie (F2), liste (F1/F3/F4)
