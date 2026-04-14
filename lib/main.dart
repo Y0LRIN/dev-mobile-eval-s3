@@ -83,7 +83,13 @@ class _TodoListScreenState extends State<TodoListScreen> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (_) => const StatsScreen()),
+                MaterialPageRoute(
+                  builder: (_) => StatsScreen(
+                    totalTasks: _tasks.length,
+                    completedTasks: _tasks.where((task) => task.isDone).length,
+                    remainingTasks: _tasks.where((task) => !task.isDone).length,
+                  ),
+                ),
               );
             },
           )
